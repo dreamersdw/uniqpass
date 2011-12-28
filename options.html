@@ -3,7 +3,7 @@
     <title>Options</title>
     <link rel="stylesheet" href="options.css" type="text/css" media="screen" charset="utf-8">
     <script type="text/javascript" charset="utf-8" src="jquery-1.7.min.js"> </script>
-    <script type="text/javascript" charset="utf-8" src="md5.jd" > </script>
+    <script type="text/javascript" charset="utf-8" src="md5.js" > </script>
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
             $("#master_password").val(localStorage["master_password"]);
@@ -37,7 +37,7 @@
                     Master Password:
                 </div>
                 <div class="right">
-                    <input type="password" id="master_password" name="master_password" value="">
+                    <input type="password" id="master_password" placeholder="input your master password here" name="master_password" value="">
                 </div>
             </div>
             <div class="row">

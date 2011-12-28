@@ -2,7 +2,7 @@
 <script type="text/javascript" charset="utf-8" src="util.js"></script>
 <script type="text/javascript">
 
-var listener = function(request, sender, sendResponse) {
+function listener(request, sender, sendResponse) {
     switch (request.reason) {
         case "ask_salted_password": 
             var domain = select_domain(request.domain);
@@ -16,5 +16,13 @@ var listener = function(request, sender, sendResponse) {
     }
 };
 
+function make_sure_not_mull_data() {
+    localStorage["master_password"] = localStorage["master_password"] || "";
+    localStorage["salt_source"] = localStorage["salt_source"] || "1";
+    localStorage["shortcut"] = localStorage["shortcut"] || "Alt+X";
+    localStorage["output_length"] = localStorage["output_length"] || "16";
+}
+
+make_sure_not_mull_data();
 chrome.extension.onRequest.addListener(listener);
 </script>
