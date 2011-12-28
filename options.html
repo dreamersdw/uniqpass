@@ -10,10 +10,10 @@
             $("#salt_source").val(localStorage["salt_source"]);
             $("#shortcut").val(localStorage["shortcut"]);
             $("#output_length").val(localStorage["output_length"]);
-            $("#inicator").text($("#output_length").val());
+            $("#indicator").text($("#output_length").val());
 
             $("#output_length").change(function(e) {
-                $("#inicator").text($("#output_length").val());
+                $("#indicator").text($("#output_length").val());
             });
 
             $("#save").click(function() {
@@ -59,7 +59,7 @@
                     <div>
                         <input type="range"  min="8" max="32" id="output_length" name="shortcut" value="16">
                     </div>
-                    <div id="inicator"> 16 </div>
+                    <div id="indicator"> 16 </div>
                 </div>
             </div>
             <div class="row">

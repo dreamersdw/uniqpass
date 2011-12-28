@@ -15,10 +15,12 @@ body {
 }
 
 #header {
+    color:#666;
     font-size:2em;
-    font-style:bold;
+    font-weight:bold;
     text-align:center;
     padding-bottom:30px;
+    text-shadow: 1px 1px 2px #aaa;
 }
 
 .table {
@@ -42,12 +44,18 @@ body {
     color:#555;
     text-align:right;
     padding-right:40px;
+    text-shadow: 1px 1px 1px #bbb;
+}
+
+#indicator {
+    color:#666;
 }
 
 .right {
 }
 
 input{
+    color:#666;
     height:40px;
     width:300px;
     padding:5px;
@@ -62,6 +70,7 @@ input[type=range] {
 }
 
 select {
+    color:#666;
     height:40px;
     width:300px;
     padding:5px;
