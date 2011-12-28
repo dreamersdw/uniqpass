@@ -1,0 +1,10 @@
+Uniqpass is a chrome extension helping you to generate security passwords for each
+sites. What you have to remember is only the master password.
+
+The algorithm for generating password is simple but reliable. You are asked to
+provide a master password, and the extension will concatenate it with the
+domain of current website to generate a md5 hash. Then the md5 hash is
+truncated to the exact length you specified, so you get the password.
+
+You can click "Fill forms" button or use shortcut (default is Alt+X) to fill
+all password fields on current webpage with generated password.
