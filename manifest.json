@@ -1,0 +1,24 @@
+{
+  "name": "Uniqpass",
+  "description": "Generate unique passwords for you on differeent sites",
+  "version": "0.1",
+  "permissions": ["contextMenus", "tabs", "http://*/*", "https://*/*"],
+  "background_page": "background.html",
+  "options_page": "options.html",
+   "icons": {
+      "128": "uniqpass.png",
+      "16": "uniqpass.png",
+      "48": "uniqpass.png"
+   },
+  "browser_action": {
+      "default_icon": "uniqpass.png", 
+      "default_title": "Generate Uniq Password",     
+      "default_popup": "popup.html"      
+  },
+  "content_scripts": [
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": ["jquery-1.7.min.js", "jquery.hotkeys.js", "content_script.js"]
+        }
+    ]
+}

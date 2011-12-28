@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Options</title>
+    <link rel="stylesheet" href="options.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="jquery-1.7.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="md5.jd" > </script>
+    <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+            $("#master_password").val(localStorage["master_password"]);
+            $("#salt_source").val(localStorage["salt_source"]);
+            $("#shortcut").val(localStorage["shortcut"]);
+            $("#save").click(function() {
+                localStorage["master_password"] = $("#master_password").val();
+                localStorage["salt_source"] = $("#salt_source").val();
+                localStorage["shortcut"] = $("#shortcut").val();
+                window.close();
+            })
+    })
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            Uniqpass Settings
+        </div>
+        <div class="table">
+            <div class="row">
+                <div class="left">
+                    Master Password:
+                </div>
+                <div class="right">
+                    <input type="password" id="master_password" name="master_password" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Salt Source:
+                </div>
+                <div class="right">
+                    <select name="salt_source" id="salt_source">
+                        <option value="0">full domain</option>
+                        <option value="1">only top level domain</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    Shortcut:
+                </div>
+                <div class="right">
+                    <input type="text" id="shortcut" name="shortcut" value="Alt+X">
+                </div>
+            </div>
+            </div>
+            <div class="savebutton">
+                <a href="#" id="save" class="button">Save and leave</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

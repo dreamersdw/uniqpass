@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Generate Uniqe password</title>
+    <link rel="stylesheet" href="popup.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="jquery-1.7.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="md5.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="util.js"> </script>
+    <script type="text/javascript" charset="utf-8">
+
+    $(document).ready(function() {
+        chrome.tabs.getSelected(null, function(tab) {
+            chrome.tabs.sendRequest(tab.id, {reason: "ask_domain"}, function(response) {
+                var domain = select_domain(response.domain);
+                var master_password = localStorage["master_password"];
+                var password = md5(master_password + domain);
+                $("#domain").val(domain)
+                $("#password").val(password);
+            });
+        });
+
+        $("#domain").keyup(function() {
+            var domain = $("#domain").val();
+            var master_password = localStorage["master_password"]
+            var password = md5(master_password + domain);
+            $("#password").val(password);
+        });
+
+        $("#fill_forms").click(function() {
+            chrome.tabs.getSelected(null, function(tab) {
+                chrome.tabs.sendRequest(tab.id, {reason:"please_fill_forms", pwd:$("#password").val()}, function(response) {
+                    window.close();
+                });
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+<div id="content">
+    <div class="table">
+        <div class="row">
+            <div class="left">
+                Domain
+            </div>
+            <div class="right">
+                <input type="text" id="domain" name="domain" value="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                Password
+            </div>
+            <div class="right">
+                <input type="text" readonly="true" id="password" name="password" value="">
+            </div>
+        </div>
+        <div class="savebutton">
+            <a href="#" id="fill_forms" class="button">Fill forms</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
