@@ -11,8 +11,7 @@
         chrome.tabs.getSelected(null, function(tab) {
             chrome.tabs.sendRequest(tab.id, {reason: "ask_domain"}, function(response) {
                 var domain = select_domain(response.domain);
-                var master_password = localStorage["master_password"];
-                var password = md5(master_password + domain);
+                var password = generate_password(domain);
                 $("#domain").val(domain)
                 $("#password").val(password);
             });
@@ -20,8 +19,7 @@
 
         $("#domain").keyup(function() {
             var domain = $("#domain").val();
-            var master_password = localStorage["master_password"]
-            var password = md5(master_password + domain);
+            var password = generate_password(domain);
             $("#password").val(password);
         });
 

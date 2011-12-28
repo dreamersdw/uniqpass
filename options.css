@@ -32,6 +32,8 @@ body {
     height:40px;
     margin:15px;
     font-size:1.3em;
+    line-height:40px;
+    vertical-align:middle;
 }
 
 .left {
@@ -40,20 +42,23 @@ body {
     color:#555;
     text-align:right;
     padding-right:40px;
-    line-height:40px;
-    vertical-align:middle;
 }
 
 .right {
 }
 
-input {
+input{
     height:40px;
     width:300px;
     padding:5px;
     border: 1px solid #888;
     border-radius: 4px;
     font-size:1.2em;
+}
+
+input[type=range] {
+    width:270px;
+    float:left;
 }
 
 select {

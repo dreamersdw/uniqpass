@@ -5,10 +5,11 @@
 var listener = function(request, sender, sendResponse) {
     switch (request.reason) {
         case "ask_salted_password": 
-            sendResponse({pwd: md5(localStorage["master_password"] + select_domain(request.domain))});
+            var domain = select_domain(request.domain);
+            sendResponse({pwd: generate_password(domain)});
             break;
         case "ask_shortcut":
-            sendResponse({shortcut:localStorage["shortcut"] });
+            sendResponse({shortcut:localStorage["shortcut"]});
             break;
         default:
             sendResponse({}); 

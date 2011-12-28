@@ -10,3 +10,14 @@ function select_domain(full_domain) {
         domain = top_level_domain(full_domain);
     return domain;
 }
+
+function truncate(pwd) {
+    var len = parseInt(localStorage["output_length"]);
+    return pwd.substr(0, len);
+}
+
+function generate_password(domain) {
+    var master_password = localStorage["master_password"];
+    var password = truncate(md5(master_password + domain));
+    return password;
+}
